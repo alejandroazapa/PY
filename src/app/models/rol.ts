@@ -1,13 +1,19 @@
 import { Estado } from "./estado";
+import { UsuarioRol } from "./usuario-rol";
+import { Privilegios } from "./privilegios";
 
 export class Rol {
-    id: number;
+    idrol: number;
     nombre: string;
     estado: Estado;
+    usuarioRoles: UsuarioRol[];
+    privilegios: Privilegios[];
 
-    constructor(id: number = 0, nombre: string = '', estado: Estado = new Estado()) {
-        this.id = id;
+    constructor(idrol: number = 0, nombre: string = '', estado: Estado = new Estado(), usuarioRoles: UsuarioRol[] = [], privilegios: Privilegios[] = []) {
+        this.idrol = idrol;
         this.nombre = nombre;
         this.estado = estado;
+        this.usuarioRoles = usuarioRoles;
+        this.privilegios = privilegios;
     }
 }

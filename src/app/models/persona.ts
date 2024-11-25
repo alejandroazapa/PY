@@ -1,4 +1,5 @@
 import { Estado } from "./estado";
+import { Usuario } from "./usuario";
 
 export class Persona {
     id: number;
@@ -9,9 +10,10 @@ export class Persona {
     telefono: string;
     dni: string;
     estado: Estado;
+    usuarios: Usuario[];
 
     constructor(id: number=0, nombre: string ='', apepat: string='', apemat: string = '', correo: string='', 
-        telefono: string='', dni: string='', estado: Estado = new Estado()){
+        telefono: string='', dni: string='', estado: Estado = new Estado(), usuarios: Usuario[] = []){
         this.id = id;
         this.nombre = nombre;
         this.apepat = apepat;
@@ -20,5 +22,6 @@ export class Persona {
         this.telefono = telefono;
         this.dni = dni;
         this.estado = estado;
+        this.usuarios = usuarios;
     }
 }

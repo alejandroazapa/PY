@@ -21,7 +21,7 @@ export class LoginComponent {
   login(): void {
     this.authService.login(this.username, this.password).subscribe({
       next: () => {
-        this.router.navigate(['/dashboard']); // Redirige al Dashboard tras login
+        this.router.navigate(['/home']); // Cambia '/Dashboard' a '/home' o la ruta que desees
       },
       error: () => {
         // No hace falta mostrar el alert porque Toastr ya maneja el mensaje de error
