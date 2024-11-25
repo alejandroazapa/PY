@@ -157,7 +157,7 @@ export class RolComponent {
       return;
     }
 
-    this.rolService.updateRol(this.rol, this.rol.id).subscribe({
+    this.rolService.updateRol(this.rol, this.rol.idrol).subscribe({
       next: () => {
         this.messageService.add({
           severity: 'success',

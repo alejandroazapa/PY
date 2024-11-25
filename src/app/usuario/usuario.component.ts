@@ -157,7 +157,7 @@ export class UsuarioComponent {
       return;
     }
 
-    this.usuarioService.updateUsuario(this.usuario, this.usuario.id).subscribe({
+    this.usuarioService.updateUsuario(this.usuario, this.usuario.idusuario).subscribe({
       next: () => {
         this.messageService.add({
           severity: 'success',

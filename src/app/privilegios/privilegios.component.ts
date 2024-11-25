@@ -157,7 +157,7 @@ export class PrivilegiosComponent {
       return;
     }
 
-    this.privilegiosService.updatePrivilegio(this.privilegio, this.privilegio.id).subscribe({
+    this.privilegiosService.updatePrivilegio(this.privilegio, this.privilegio.idprivilegios).subscribe({
       next: () => {
         this.messageService.add({
           severity: 'success',

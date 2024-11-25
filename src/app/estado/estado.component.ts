@@ -158,7 +158,7 @@ export class EstadoComponent {
       return;
     }
 
-    this.estadoService.updateEstado(this.estado, this.estado.id).subscribe({
+    this.estadoService.updateEstado(this.estado, this.estado.idestado).subscribe({
       next: () => {
         this.messageService.add({
           severity: 'success',
