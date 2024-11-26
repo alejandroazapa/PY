@@ -15,8 +15,8 @@ export class AuthService {
   /**
    * Método para registrar un nuevo usuario.
    */
-  register(username: string, email: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, { username, email, password }).pipe(
+  register(nombre: string, contrasenia: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/register`, { nombre, contrasenia }).pipe(
       catchError((error) => {
         const errorMessage = error.error?.message || 'Error al registrarse';
         this.toastr.error(errorMessage, 'Error');
@@ -28,12 +28,12 @@ export class AuthService {
   /**
    * Método para iniciar sesión.
    */
-  login(username: string, password: string): Observable<any> {
-    return this.http.post(`${this.baseUrl}/login`, { username, password }).pipe(
+  login(nombre: string, contrasenia: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/login`, { nombre, contrasenia }).pipe(
       tap((response: any) => {
         if (response?.accessToken) {
           localStorage.setItem('accessToken', response.accessToken);  // Guarda el token
-          localStorage.setItem('username', response.username);  // Guarda el username
+          localStorage.setItem('nombre', response.nombre);  // Guarda el username
           localStorage.setItem('role', response.role);  // Guarda el role
           this.toastr.success('Has accedido al sistema correctamente', 'Éxito');
         }
@@ -65,7 +65,7 @@ export class AuthService {
    * Obtiene el nombre de usuario almacenado.
    */
   getUsername(): string {
-    return localStorage.getItem('username') || '';
+    return localStorage.getItem('nombre') || '';
   }
 
   /**

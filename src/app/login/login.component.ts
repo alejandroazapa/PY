@@ -12,19 +12,21 @@ import { AuthService } from '../services/auth.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  nombre: string = '';
+  contrasenia: string = '';
   welcomeMessage: string = '';
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
-    this.authService.login(this.username, this.password).subscribe({
-      next: () => {
-        this.router.navigate(['/home']); // Cambia '/Dashboard' a '/home' o la ruta que desees
+    this.authService.login(this.nombre, this.contrasenia).subscribe({
+      next: (response) => {
+        console.log('Login response:', response);
+        console.log('Rol almacenado:', response.role);
+        this.router.navigate(['/home']);
       },
       error: () => {
-        // No hace falta mostrar el alert porque Toastr ya maneja el mensaje de error
+        // Manejo de errores
       }
     });
   }

@@ -11,7 +11,9 @@ import { Router } from '@angular/router';
 export class HomeComponent {
   constructor(private router: Router) {}
 
-  goToPracticas() {
+  goToNavigate() {
+    const token = localStorage.getItem('accessToken');
+    console.log('Token:', token);
     this.router.navigate(['/navegar']); // Redirige a la ruta 'navegar'
   }
 

@@ -1,4 +1,3 @@
-
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -12,17 +11,12 @@ export class AuthGuard implements CanActivate{
 
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const token = localStorage.getItem('accessToken');
+    console.log('Token:', token);
+
     if (!token) {
       this.router.navigate(['/login']);
       return false;
     }
-
-    // Obtener el rol del usuario
-    const userRole = localStorage.getItem('role')?.toLowerCase();
-  if (userRole !== 'admin') {
-    this.router.navigate(['/login']); // O una página de "acceso denegado"
-    return false;
-  }
 
     return true;
   }

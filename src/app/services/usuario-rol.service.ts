@@ -7,7 +7,7 @@ import { UsuarioRol } from '../models/usuario-rol'; // Asegúrate de que este mo
   providedIn: 'root'
 })
 export class UsuarioRolService {
-  private apiUrl = 'http://localhost:8080/api/usuario-rol'; // Cambia la URL según sea necesario
+  private apiUrl = 'http://localhost:8080/api/usuariorol'; // Cambia la URL según sea necesario
 
   constructor(private http: HttpClient) { }
 
