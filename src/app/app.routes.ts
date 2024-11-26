@@ -7,17 +7,11 @@ import { PrivilegiosComponent } from './privilegios/privilegios.component';
 import { UsuarioRolComponent } from './usuario-rol/usuario-rol.component';
 import { RolPrivilegiosComponent } from './rol-privilegios/rol-privilegios.component';
 import { NavegarComponent } from './navegar/navegar.component';
-import { AuthGuard } from './guards/auth.guard';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-    { path: 'login', component: LoginComponent },
-    { path: 'home', component: HomeComponent},
     {
         path: 'navegar',
         component: NavegarComponent,
-        canActivate: [AuthGuard], // Protege todas las rutas hijas
         children: [
           { path: 'usuario', component: UsuarioComponent },
           { path: 'rol', component: RolComponent },
@@ -28,5 +22,5 @@ export const routes: Routes = [
           { path: 'persona', component: PersonaComponent },
         ],
       },
-      { path: '**', redirectTo: 'login' }, 
+      { path: '**', redirectTo: 'navegar' }, 
 ];
